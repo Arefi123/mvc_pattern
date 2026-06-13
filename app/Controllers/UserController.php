@@ -17,4 +17,20 @@ class UserController
         require_once __DIR__ . '/../Views/users.php';
     }
 
+    public function create()
+    {
+        require_once __DIR__ . '/../Views/create.php';
+    }
+
+    public function store()
+    {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+
+        $this->user->store($name, $email);
+
+        header("Location: ?");
+
+    }
+
 }

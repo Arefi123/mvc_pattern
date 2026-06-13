@@ -1,5 +1,9 @@
 <h1>User List</h1>
 
+<a href="?action=create">
+    Create User
+</a>
+
 <table border="1">
     <tr>
         <th>ID</th>

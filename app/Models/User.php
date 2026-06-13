@@ -20,4 +20,14 @@ class User
 
         return $result;
     }
+
+    public function store($name, $email)
+    {
+        $query = "INSERT INTO users(name, email) VALUES(?, ?)";
+        $dbQuery = $this->pdo->prepare($query);
+
+        $result = $dbQuery->execute([$name, $email]);
+
+        return $result;
+    }
 }
