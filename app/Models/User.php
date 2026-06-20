@@ -30,4 +30,37 @@ class User
 
         return $result;
     }
+
+    public function destroy($id)
+    {
+        $query = "DELETE FROM users where id = ?";
+        $dbQuery = $this->pdo->prepare($query);
+
+        $result = $dbQuery->execute([$id]);
+
+        return $result;
+    }
+
+
+    public function find($id)
+    {
+        $query = "SELECT * FROM users WHERE id = ?";
+
+        $result = $this->pdo->prepare($query);
+
+        $result->execute([$id]);
+
+        return $result->fetch(PDO::FETCH_ASSOC);
+
+    }
+
+    public function update($id, $name, $email)
+    {
+        $query = "UPDATE users SET name = ?, email = ? WHERE id = ?";
+        $dbQuery = $this->pdo->prepare($query);
+
+        $result = $dbQuery->execute([$name, $email, $id]);
+
+        return $result;
+    }
 }

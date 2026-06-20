@@ -33,4 +33,32 @@ class UserController
 
     }
 
+    public function delete()
+    {
+        $userId = $_GET['id'];
+
+        $this->user->destroy($userId);
+
+        header("Location: ?");
+    }
+
+
+    public function edit()
+    {
+        $userId = $_GET['id'];
+
+        $user = $this->user->find($userId);
+        require_once __DIR__ . '/../Views/edit.php';
+    }
+
+    public function update()
+    {
+        $userId = $_POST['id'];
+        $userName = $_POST['name'];
+        $userEmail = $_POST['email'];
+
+        $this->user->update($userId, $userName, $userEmail);
+
+        header("Location: ?");
+    }
 }

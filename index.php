@@ -17,6 +17,15 @@ switch ($action) {
     case 'store':
         $userController->store();
         break;
+    case 'delete':
+        $userController->delete();
+        break;
+    case 'edit':
+        $userController->edit();
+        break;
+    case 'update':
+        $userController->update();
+        break;
     default:
         $userController->index();
 }
